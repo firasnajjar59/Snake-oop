@@ -37,13 +37,15 @@ def game_start():
         if snake.head.xcor()>250 or snake.head.xcor()<-250 or snake.head.ycor()>250 or snake.head.ycor()<-250:
             game_is_on=False
             score.game_over()
+            score.check_high_score()
             screen.onkeypress(quit,"n")
             screen.onkeypress(restart,"y")
         for segment in snake.body[1:]:
             if snake.head.distance(segment)<9:
                 game_is_on=False
                 score.game_over()
+                score.check_high_score()
                 screen.onkeypress(quit,"n")
-                screen.onkeypress(quit,"n")
+                screen.onkeypress(restart,"y")
     screen.exitonclick()
 game_start()
